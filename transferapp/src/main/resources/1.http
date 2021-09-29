@@ -1,0 +1,14 @@
+POST http://localhost:8080/transfer
+Content-Type: application/json
+
+{
+
+   "cardFromNumber":"123",
+   "cardFromValidTill":"345",
+   "cardFromCVV":"567",
+   "cardToNumber":"789",
+  "amount": {"currency": "RUR", "value": "15000"}
+
+}
+
+
