@@ -2,13 +2,17 @@ package com.works.transferapp.service;
 
 import com.works.transferapp.exceptions.ErrorTransfer;
 import com.works.transferapp.entities.TransferRequest;
+import org.springframework.stereotype.Component;
+
+
 import java.io.*;
 
+@Component
 public class CardValidator {
 
     private static final String dataBasePath = "src/main/resources/cards.txt";
 
-    public static boolean recipientsCardValidation(TransferRequest transferRequest) {
+    protected boolean recipientsCardValidation(TransferRequest transferRequest) {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(dataBasePath))) {
             String s;
             while ((s = bufferedReader.readLine()) != null) {
@@ -23,7 +27,7 @@ public class CardValidator {
         return false;
     }
 
-    public static boolean sendersCardValidation(TransferRequest transferRequest) throws ErrorTransfer {
+    protected boolean sendersCardValidation(TransferRequest transferRequest) throws ErrorTransfer {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(dataBasePath))) {
             String s;
             while ((s = bufferedReader.readLine()) != null) {

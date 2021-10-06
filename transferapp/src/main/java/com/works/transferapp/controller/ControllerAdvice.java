@@ -9,17 +9,16 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 
-
 @RestControllerAdvice
 public class ControllerAdvice {
 
     @ExceptionHandler(ErrorInputData.class)
-    public ResponseEntity<?> handleIO (ErrorInputData ex) {
+    public ResponseEntity<?> handleIO(ErrorInputData ex) {
         return new ResponseEntity<>(new ErrorInputData(ex.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ErrorTransfer.class)
-    public ResponseEntity<?> handleET (ErrorTransfer ex) {
+    public ResponseEntity<?> handleET(ErrorTransfer ex) {
         return new ResponseEntity<>(new ErrorTransfer(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
